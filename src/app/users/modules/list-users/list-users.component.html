@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{ user.surname }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <a [routerLink]="'/users/form/view/' + user.id">
+            <button>
+              <i class="bi-eye"></i>
+            </button>
+          </a>
+          <a [routerLink]="'/users/form/edit/' + user.id">
+            <button>
+              <i class="bi-pencil"></i>
+            </button>
+          </a>
+          <button (click)="onDelete(user.id)">
+            <i class="bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-footer></app-footer>
